@@ -12,14 +12,14 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v4
       - name: Print project path
-        run: echo $GITHUB_WORKSPACE/{{ matrix.projectPath }}
+        run: echo $GITHUB_WORKSPACE/testDevOps2
 
       - name: Cache
         uses: actions/cache@v4
         with:
           # Remove ".${{ matrix.projectPath }}"
-          path: ${{ matrix.projectPath }}/testDevOps2  # Assuming testDevOps2 is the project folder within the checkout
-          key: testDevOps-${{ matrix.projectPath }}
+          path: $GITHUB_WORKSPACE/testDevOps2 
+          key: testDevOps-${{ github.workspace }}
           restore-keys: |
             testDevOps-
 
