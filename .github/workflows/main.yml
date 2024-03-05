@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: List Root Directory Contents
-        run: ls -l .
+        run: ls -l ./testDevOps2
