@@ -18,10 +18,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/testDevOps2 
-          key: testDevOps-${{ github.sha }}-${{ github.workspace }}/testDevOps2
-
-          restore-keys: |
-           testDevOps-
+         
 
      
 
