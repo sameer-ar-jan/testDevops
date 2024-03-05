@@ -8,7 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-     
+     - name: Navigate to Repository Root
+       run: cd ${{ github.workspace }}
      - name: Checkout project
        uses: actions/checkout@v4
      - name: Unity - Test runner
@@ -18,7 +19,7 @@ jobs:
        env:
          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
        with:
-         projectPath: ./testDevops/testDevops/testDevOps2
+         projectPath: testDevops/testDevops/testDevOps2
          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
 
