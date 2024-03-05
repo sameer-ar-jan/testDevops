@@ -28,5 +28,5 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          projectPath: $GITHUB_WORKSPACE/testDevOps2
+          projectPath: ${{github.workspace}}/testDevOps2
           githubToken: ${{ secrets.GITHUB_TOKEN }}
