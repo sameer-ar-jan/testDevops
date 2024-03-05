@@ -21,8 +21,7 @@ jobs:
           restore-keys: |
             testDevOps-
 
-      - name: Build Unity Project (Replace "Build Unity Project" with your actual build command)
-        # Modify this step to use the appropriate build command depending on your project setup (e.g., "unity -batchmode -quit -projectPath ${{ matrix.projectPath }} -buildTarget WebGL")
+     
 
       - name: Test runner (Optional)
         uses: game-ci/unity-test-runner@v4
