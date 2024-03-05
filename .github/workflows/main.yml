@@ -23,7 +23,7 @@ jobs:
        env:
          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
        with:
-         projectPath: ${{ github.workspace }}
+         projectPath: /home/runner/work/testDevops
          githubToken: ${{ secrets.GITHUB_TOKEN }}
             
             
