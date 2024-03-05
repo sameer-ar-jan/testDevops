@@ -1,15 +1,20 @@
-name: List Root Directory Contents
-
+name: Unity Build
 on:
   push:
     branches:
       - main
-
 jobs:
-  list_contents:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - name: List Root Directory Contents
-        run: ls -l ./testDevOps2
+
+     
+     - name: Checkout project
+       uses: actions/checkout@v4
+
+       env:
+         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+       with:
+         projectPath: ./testDevOps2
+         githubToken: ${{ secrets.GITHUB_TOKEN }}
