@@ -1,29 +1,14 @@
-name: Unity Build
+name: List Root Directory Contents
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  build:
+  list_contents:
     runs-on: ubuntu-latest
-    
+
     steps:
-     - name: Navigate to Repository Root
-       run: cd ${{ github.workspace }}
-     - name: Checkout project
-       uses: actions/checkout@v4
-     - name: Unity - Test runner
-       uses: game-ci/unity-test-runner@v4.1.1
-            
-     
-       env:
-         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-       with:
-         projectPath: testDevops/testDevops/testDevOps2
-         githubToken: ${{ secrets.GITHUB_TOKEN }}
-
-
-
-     
-
-             #m
+      - name: List Root Directory Contents
+        run: ls -l .
