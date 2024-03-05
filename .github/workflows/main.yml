@@ -8,21 +8,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
 
-     
-     - name: Checkout project
-       uses: actions/checkout@v4
-
-     - name: Cache
-       uses: actions/cache@v4.0.1
-            
-  
-     - name: Test runner
-       uses: game-ci/unity-test-runner@v4
-       env:
-         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-       with:
-         projectPath: ./testDevOps2
-         githubToken: ${{ secrets.GITHUB_TOKEN }}
-
-     
+      - name: Cache
+        uses: actions/cache@v4.0.1
+        with:
+          path: ./testDevOps2
+          key: ${{ runner.os }}-build-${{ hashFiles('**/project.lock.json') }}
+          
+      - name: Test runner
+        uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          projectPath: ./testDevOps2
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
