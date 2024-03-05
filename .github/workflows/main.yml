@@ -12,8 +12,7 @@ jobs:
     
 
     steps:
-     - name: Navigate to Repository Root
-       run: cd ${{ github.workspace }}
+     
      - name: Checkout project
        uses: actions/checkout@v4
      - name: Unity - Test runner
@@ -23,11 +22,11 @@ jobs:
        env:
          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
        with:
-         projectPath: .
+         projectPath: ./testDevOps2
          githubToken: ${{ secrets.GITHUB_TOKEN }}
             
             
 
      
 
-             #mfmfmfmff
+             #m
