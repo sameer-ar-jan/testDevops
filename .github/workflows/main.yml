@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,15 +13,20 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Cache
-        uses: actions/cache@v4.0.1
+        uses: actions/cache@v4
         with:
-          path: .${{ matrix.projectPath }}/testDevOps2
+          # Remove ".${{ matrix.projectPath }}"
+          path: ${{ matrix.projectPath }}/testDevOps2  # Assuming testDevOps2 is the project folder within the checkout
           key: testDevOps-${{ matrix.projectPath }}
           restore-keys: |
             testDevOps-
-          
-      - name: Test runner
+
+      - name: Build Unity Project (Replace "Build Unity Project" with your actual build command)
+        # Modify this step to use the appropriate build command depending on your project setup (e.g., "unity -batchmode -quit -projectPath ${{ matrix.projectPath }} -buildTarget WebGL")
+
+      - name: Test runner (Optional)
         uses: game-ci/unity-test-runner@v4
+        if: ${{ success() }}  # Run tests only if the build was successful (optional)
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
