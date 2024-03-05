@@ -12,8 +12,7 @@ jobs:
     
 
     steps:
-     - name: Navigate to Repository Root
-       run: cd ${{ github.workspace }}
+     
      - name: Checkout project
        uses: actions/checkout@v4
      - name: Unity - Test runner
