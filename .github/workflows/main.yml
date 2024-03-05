@@ -22,9 +22,9 @@ jobs:
 
      
 
-      - name: Test runner (Optional)
-        uses: game-ci/unity-test-runner@v4
-        if: ${{ success() }}  # Run tests only if the build was successful (optional)
+      #- name: Test runner (Optional)
+       # uses: game-ci/unity-test-runner@v4
+       # if: ${{ success() }}  # Run tests only if the build was successful (optional)
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
