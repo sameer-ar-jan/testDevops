@@ -1,0 +1,33 @@
+name: Unity Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    
+
+    steps:
+     - name: Navigate to Repository Root
+       run: cd ${{ github.workspace }}
+     - name: Checkout project
+       uses: actions/checkout@v4
+     - name: Unity - Test runner
+       uses: game-ci/unity-test-runner@v4.1.1
+            
+     
+       env:
+         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+       with:
+         projectPath: .
+         githubToken: ${{ secrets.GITHUB_TOKEN }}
+            
+            
+
+     
+
+             #mfmfmfmff
