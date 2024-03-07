@@ -13,13 +13,13 @@ jobs:
         uses: actions/checkout@v4
         # with: 
         #   path: ./testDevOps2 
-      # - name: Print project path
-      #   run: echo $GITHUB_REF
+      - name: Print project path
+        run: echo ls -l .
 
      # - name: Cache
-      #  uses: actions/cache@v4
-      #  with:
-       #   path: ${{ github.workspace }}/testDevOps2 
+     #   uses: actions/cache@v4
+     #   with:
+     #     path: ${{ github.workspace }}/testDevOps2 
          
 
      
