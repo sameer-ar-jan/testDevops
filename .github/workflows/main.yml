@@ -11,10 +11,10 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v4
-        with: 
-          path: ./testDevOps2 
-      - name: Print project path
-        run: echo $GITHUB_REF
+        # with: 
+        #   path: ./testDevOps2 
+      # - name: Print project path
+      #   run: echo $GITHUB_REF
 
      # - name: Cache
       #  uses: actions/cache@v4
