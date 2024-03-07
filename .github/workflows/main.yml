@@ -12,7 +12,7 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v4
         with: 
-          ref: ${{ github.head_ref }} 
+          path: ./testDevOps2 
       - name: Print project path
         run: echo ls -l .
 
