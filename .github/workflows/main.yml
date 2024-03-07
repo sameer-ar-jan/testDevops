@@ -12,7 +12,7 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v4
         with: 
-          lfs: true 
+          ref: ${{ github.head_ref }} 
       - name: Print project path
         run: echo ls -l .
 
