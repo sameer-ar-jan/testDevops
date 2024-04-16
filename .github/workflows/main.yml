@@ -1,5 +1,4 @@
 name: Unity Build
-
 on:
   push:
     branches:
@@ -9,24 +8,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    
-
     steps:
-     
-     - name: Checkout project
-       uses: actions/checkout@v4
-     - name: Unity - Test runner
-       uses: game-ci/unity-test-runner@v4.1.1
-            
-     
-       env:
-         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-       with:
-         projectPath: ./testDevOps2
-         githubToken: ${{ secrets.GITHUB_TOKEN }}
-            
-            
+      - name: Checkout project
+        uses: actions/checkout@v4
+        # with: 
+        #   path: ./testDevOps2 
+      - name: Print project path
+        run: ls -l .
+
+     # - name: Cache
+     #   uses: actions/cache@v4
+     #   with:
+     #     path: ${{ github.workspace }}/testDevOps2 
+         
 
      
 
-             #m
+      - name: Test runner (Optional)
+        uses: game-ci/unity-test-runner@v4
+        # Run tests only if the build was successful (optional)
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          projectPath: ./testDevOps2
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
